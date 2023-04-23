@@ -1,12 +1,23 @@
 import Head from "next/head";
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 import API from "@/api";
 import { useState } from "react";
 import { Form } from "@/components";
 
 export default function Home() {
-  const [messages, setMessages] = useState(["Hi", "Bye", "Now"]);
+  const [messages, setMessages] = useState([
+    "Hi",
+    "Bye",
+    "Now",
+    "Hi",
+    "Bye",
+    "Now",
+    "Hi",
+    "Bye",
+    "Now",
+    "Kirrrrrrrrrrrrrrrrrrr",
+  ]);
 
   const predict = async (callback) => {
     setMessages([...messages, callback.question]);
@@ -31,7 +42,7 @@ export default function Home() {
       <Box
         sx={{
           w: "100%",
-          my: 2,
+          mb: "6rem",
         }}
       >
         {messages.map((message, index) => {
@@ -39,35 +50,45 @@ export default function Home() {
             <Box
               key={`Mes-${index}`}
               sx={{
-                backgroundColor: index % 2 === 0 ? "#222" : "#333",
+                backgroundColor: index % 2 === 0 ? "#333" : "#222",
                 p: 2,
               }}
             >
-              <Typography
-                color={index % 2 === 0 ? "primary" : "info.main"}
-                variant="h6"
-                gutterBottom
-              >
-                {index % 2 === 0 ? "User" : "AI"}
-              </Typography>
-              <Typography variant="body1">{message}</Typography>
+              <Container>
+                <Box sx={{ mx: "1rem" }}>
+                  <Typography
+                    color={index % 2 === 0 ? "primary" : "info.main"}
+                    variant="h6"
+                    gutterBottom
+                  >
+                    {index % 2 === 0 ? "You" : "AI"}
+                  </Typography>
+                  <Typography variant="body1">{message}</Typography>
+                </Box>
+              </Container>
             </Box>
           );
         })}
-        <br />
-        <br />
         <Box
           sx={{
-            height: "100%",
-            display: "flex",
+            position: "fixed",
             bottom: 0,
+            left: 0,
+            right: 0,
+            background: "linear-gradient(to top, #222, #333)",
           }}
         >
-          <Form
-            name="predict"
-            btnStyle={{ color: "primary" }}
-            callback={predict}
-          />
+          <Container
+            sx={{
+              my: "1rem",
+            }}
+          >
+            <Form
+              name="predict"
+              btnStyle={{ color: "primary" }}
+              callback={predict}
+            />
+          </Container>
         </Box>
       </Box>
     </>
