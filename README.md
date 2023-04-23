@@ -1,38 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [QandAI - Front-End](https://chat.amirhossein.info)
+
+## Introduction
+
+QandAI is a chatbot that uses artificial intelligence (AI) to answer user questions. It is built using Python, Flask, and scikit-learn, and can be easily customized to suit your needs. This project is located at [BlackIQ/QandAIR](https://github.com/BlackIQ/QandAI).
+
+## Front-End
+
+With this project you can access to this ML project easier. We created this project with **NextJs**.
 
 ## Getting Started
 
-First, run the development server:
+### Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+To use QandAI Front-End, you will need:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- NextJs
+- NPM
+- Node
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Installation
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To install QandAI Front-End dependencies, follow these steps:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Clone the repository from GitHub: `git clone https://github.com/BlackIQ/QandAI-UI.git`.
+2. Navigate to the project directory: `cd QandAI-UI`.
+3. Install the required dependencies: `npm i`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Usage
 
-## Learn More
+To use QandAI, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. Copy `.env.example` to `.env` and change `NEXT_PUBLIC_API` to your custome url.
+2. Then start the project with `npm run dev`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To customize QandAI, you can modify the following:
 
-## Deploy on Vercel
+- `src/pages/index.js`: The only page it the project.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+QandAI was inspired by the many open-source chatbot projects available online. Thank you to the developers and contributors of scikit-learn, Flask, and joblib for their excellent libraries.
