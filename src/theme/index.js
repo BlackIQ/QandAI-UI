@@ -4,7 +4,7 @@ const vazir = Vazirmatn({ subsets: ["latin"] });
 
 import { colors, createTheme } from "@mui/material";
 
-let mode = "light";
+let mode = "dark";
 
 const theme = createTheme({
   palette: {
