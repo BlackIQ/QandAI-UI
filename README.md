@@ -2,7 +2,7 @@
 
 ## Introduction
 
-QandAI is a chatbot that uses artificial intelligence (AI) to answer user questions. It is built using Python, Flask, and scikit-learn, and can be easily customized to suit your needs. This project is located at [BlackIQ/QandAIR](https://github.com/BlackIQ/QandAI).
+QandAI is a chatbot that uses artificial intelligence (AI) to answer user questions. It is built using Python, Flask, and scikit-learn, and can be easily customized to suit your needs. This project is located at [BlackIQ/QandAI](https://github.com/BlackIQ/QandAI).
 
 ## Front-End
 
