@@ -1,31 +1,24 @@
+import { useState } from "react";
+
 import Head from "next/head";
 import { Box, Container, Typography } from "@mui/material";
 
 import API from "@/api";
-import { useState } from "react";
+import { mode } from "@/theme";
 import { Form } from "@/components";
 
 export default function Home() {
-  const [messages, setMessages] = useState([
-    "Hi",
-    "Bye",
-    "Now",
-    "Hi",
-    "Bye",
-    "Now",
-    "Hi",
-    "Bye",
-    "Now",
-    "Kirrrrrrrrrrrrrrrrrrr",
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const predict = async (callback) => {
-    setMessages([...messages, callback.question]);
+    const mes1 = { message: callback.question, who: "user" };
 
     try {
       const { data } = await API.post("predict", callback);
 
-      setMessages([...messages, , data.answer]);
+      const mes2 = { message: data.answer, who: "ai" };
+
+      setMessages([...messages, mes1, mes2]);
     } catch (error) {
       console.log(error);
     }
@@ -48,22 +41,29 @@ export default function Home() {
         {messages.map((message, index) => {
           return (
             <Box
-              key={`Mes-${index}`}
+              key={`Mes-${message.who}-${index}`}
               sx={{
-                backgroundColor: index % 2 === 0 ? "#333" : "#222",
+                backgroundColor:
+                  message.who === "ai"
+                    ? mode === "dark"
+                      ? "#333"
+                      : "#eee"
+                    : mode === "dark"
+                    ? "#222"
+                    : "#ccc",
                 p: 2,
               }}
             >
               <Container>
                 <Box sx={{ mx: "1rem" }}>
                   <Typography
-                    color={index % 2 === 0 ? "primary" : "info.main"}
+                    color={message.who === "user" ? "primary" : "info.main"}
                     variant="h6"
                     gutterBottom
                   >
-                    {index % 2 === 0 ? "You" : "AI"}
+                    {message.who === "user" ? "You" : "AI"}
                   </Typography>
-                  <Typography variant="body1">{message}</Typography>
+                  <Typography variant="body1">{message.message}</Typography>
                 </Box>
               </Container>
             </Box>
@@ -75,7 +75,9 @@ export default function Home() {
             bottom: 0,
             left: 0,
             right: 0,
-            background: "linear-gradient(to top, #222, #333)",
+            background: `linear-gradient(to top, ${
+              mode === "dark" ? "#222" : "#ccc"
+            }, ${mode === "dark" ? "#333" : "#eee"})`,
           }}
         >
           <Container
@@ -85,7 +87,7 @@ export default function Home() {
           >
             <Form
               name="predict"
-              btnStyle={{ color: "primary" }}
+              style={{ color: "primary" }}
               callback={predict}
             />
           </Container>

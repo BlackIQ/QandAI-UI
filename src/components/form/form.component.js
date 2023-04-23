@@ -17,7 +17,7 @@ import {
 
 import { forms } from "@/config";
 
-const FormsComponent = ({ name, button, btnStyle, def, callback, change }) => {
+const FormsComponent = ({ name, button, style, def, callback, change }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: def,
   });
@@ -66,9 +66,7 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, change }) => {
                     {...register(name)}
                     label={field.label}
                     control={
-                      <Checkbox
-                        color={btnStyle.color ? btnStyle.color : "primary"}
-                      />
+                      <Checkbox color={style.color ? style.color : "primary"} />
                     }
                   />
                   <br />
@@ -77,7 +75,7 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, change }) => {
             case "color":
               return (
                 <TextField
-                  color={btnStyle.color ? btnStyle.color : "primary"}
+                  color={style.color ? style.color : "primary"}
                   key={name}
                   {...register(name)}
                   label={field.label}
@@ -90,7 +88,7 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, change }) => {
             case "select":
               return (
                 <FormControl
-                  color={btnStyle.color ? btnStyle.color : "primary"}
+                  color={style.color ? style.color : "primary"}
                   margin="normal"
                   key={name}
                   fullWidth
@@ -123,7 +121,7 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, change }) => {
                   label={field.label}
                   type={field.secure ? "password" : field.type}
                   placeholder={field.placeholder}
-                  color={btnStyle.color ? btnStyle.color : "primary"}
+                  color={style.color ? style.color : "primary"}
                   margin="normal"
                   rows={5}
                   fullWidth
@@ -137,7 +135,7 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, change }) => {
                   {...register(name)}
                   disabled={field.disabled}
                   label={field.label}
-                  color={btnStyle.color ? btnStyle.color : "primary"}
+                  color={style.color ? style.color : "primary"}
                   type={field.secure ? "password" : field.type}
                   placeholder={field.placeholder}
                   margin="normal"
@@ -149,13 +147,13 @@ const FormsComponent = ({ name, button, btnStyle, def, callback, change }) => {
         {button && (
           <Button
             variant="contained"
-            color={btnStyle.color ? btnStyle.color : "primary"}
+            color={style.color ? style.color : "primary"}
             size="large"
             type="submit"
             onClick={handleSubmit(onSubmit)}
             sx={{ color: "white", mt: 1 }}
-            fullWidth={btnStyle.fullWidth}
-            disabled={btnStyle.disabled}
+            fullWidth={style.fullWidth}
+            disabled={style.disabled}
             disableElevation
           >
             {button}
