@@ -42,7 +42,7 @@ export default function Home() {
       <Box
         sx={{
           w: "100%",
-          mb: "6rem",
+          mb: "7rem",
         }}
       >
         {messages.map((message, index) => {
